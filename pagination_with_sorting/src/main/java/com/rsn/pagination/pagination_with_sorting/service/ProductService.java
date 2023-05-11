@@ -29,6 +29,10 @@ public class ProductService {
 //                collect(Collectors.toList());
 //        productRepo.saveAll(products);
 //    }
+    public Product createProduct(Product product) {
+        return productRepo.save(product);
+    }
+
     public List<Product> getAllData() {
         return productRepo.findAll();
     }

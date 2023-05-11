@@ -5,10 +5,7 @@ import com.rsn.pagination.pagination_with_sorting.model.Product;
 import com.rsn.pagination.pagination_with_sorting.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +15,12 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
+
+    @PostMapping("/signup")
+    public APIResponse<Product> entryProduct(Product product) {
+        Product product1 = productService.createProduct(product);
+        return new APIResponse<>(product1);
+    }
 
     @GetMapping("/findAllData")
     public APIResponse<List<Product>> findAllData() {
