@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v2")
@@ -24,5 +25,11 @@ public class UserController {
     @GetMapping("/getdata")
     public ResponseEntity<List<User>> getUserdata() {
         return ResponseEntity.ok(userService.getAllUserData());
+    }
+
+    @GetMapping("/getdatabyid/{userId}")
+    public ResponseEntity<Optional<User>> getDataById(@PathVariable long userId)
+    {
+        return ResponseEntity.ok(userService.getDataById(userId));
     }
 }

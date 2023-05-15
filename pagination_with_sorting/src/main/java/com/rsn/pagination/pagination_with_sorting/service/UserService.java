@@ -1,15 +1,14 @@
 package com.rsn.pagination.pagination_with_sorting.service;
 
 import com.rsn.pagination.pagination_with_sorting.exception.ResourceNotFoundException;
-import com.rsn.pagination.pagination_with_sorting.model.Product;
 import com.rsn.pagination.pagination_with_sorting.model.User;
 import com.rsn.pagination.pagination_with_sorting.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -36,4 +35,7 @@ public class UserService {
     }
 
 
+    public Optional<User> getDataById(long userId) {
+        return userRepo.findById(userId);
+    }
 }
