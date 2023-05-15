@@ -22,13 +22,17 @@ public class ProductService {
     ProductRepo productRepo;
 
 
-    //    @PostConstruct
-//    public void intiDB() {
-//        List<Product> products = IntStream.rangeClosed(1, 200).
-//                mapToObj(i -> new Product("product" + i, new Random().nextInt(100), new Random().nextInt(50000))).
-//                collect(Collectors.toList());
-//        productRepo.saveAll(products);
-//    }
+        /*@PostConstruct
+    public void intiDB() {
+        List<Product> products = IntStream.rangeClosed(1, 200).
+                mapToObj(i -> new Product("product" + i, new Random().nextInt(100), new Random().nextInt(50000))).
+                collect(Collectors.toList());
+        productRepo.saveAll(products);
+    }*/
+    public Product saveData(Product product){
+        return productRepo.save(product);
+    }
+
     public List<Product> getAllData() {
         return productRepo.findAll();
     }
